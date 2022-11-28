@@ -103,6 +103,7 @@ while True:
         
         # if we have bet, we want to be able to change our bet unless its locked in
         else:
+            print(f"Bet on {bet}\n")
             print(f"Balance = {balance} -- Winrate = {WINRATE} %\n")
 
             # choose bet

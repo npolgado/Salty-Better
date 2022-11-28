@@ -6,16 +6,22 @@
  # Installation
 
 `git clone https://github.com/npolgado/Salty-Better.git`
+
 `cd Salty-Better`
+
 `python3 -m pip install -r requirements.txt`
 
 # Running
 Make sure you put your username and password into newlines in 'salty_creds.txt'
 
 --------------------------
+
 Example salty_creds.txt:
+
 username@gmail.com
+
 password123
+
 --------------------------
 
 to run the script...
