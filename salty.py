@@ -21,9 +21,14 @@ DID_BET = False
 DID_START = False
 DID_END = False
 
-with open('salty_creds.txt') as f:
-    username = str(f.readline())
-    password = str(f.readline())
+try:
+    with open('salty_creds.txt') as f:
+        username = str(f.readline())
+        password = str(f.readline())
+except:
+    username = ''
+    password = ''
+
 
 print(f"found username = {username}, password = {password}")
 
@@ -31,8 +36,12 @@ options = Options()
 options.add_argument("start-maximized")
 options.add_experimental_option("detach", True)
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-driver.get("https://www.saltybet.com")
+try:
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get("https://www.saltybet.com")
+except:
+    print('ERROR GETTING WEBSITE...')
+    sys.exit(1)
 
 try:
     # logging in 
@@ -118,7 +127,7 @@ while True:
                 DID_BET = True
             except:
                 print(f"ERROR COULDN'T BET ON {bet}")
-                print(f"Balance = {balance} -- Winrate = {WINRATE} %\n")
+                print(f"Balance = {balance} -- Winrate = {WINRATE} %")
         
     if LAST_BALANCE > balance:
         NUM_LOSSES += 1
